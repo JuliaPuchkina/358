@@ -41,10 +41,11 @@ func handleConn(conn net.Conn) {
 		conn.Write([]byte(readProverb("proverbs.txt") + "\n"))
 	}
 
-	// Закрытие соединения.
+	// закрытие соединения
 	conn.Close()
 }
 
+// функция, читающая файл с пословицами, и выдающая одну из них рандомно
 func readProverb(fileName string) (line string) {
 	readFile, err := os.Open(fileName)
 
@@ -67,6 +68,7 @@ func readProverb(fileName string) (line string) {
 	return
 }
 
+// для выбора рандомного числа
 func init() {
 	rand.Seed(time.Now().UnixNano())
 }
